@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Giới Thiệu Cá Nhân</title>
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --primary-dark: #0a355a;
+      --accent: #ffb703;
+      --bg: #edf4fb;
+      --card: #ffffff;
+      --text: #1c2a39;
+      --muted: #5d6d7e;
+      --line: #dfeaf4;
+      --shadow: 0 18px 45px rgba(12, 52, 88, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef6ff 0%, #f8fbff 100%);
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 72px 0 54px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.15;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 0.92rem;
+    }
+
+    .avatar-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar-box {
+      background: linear-gradient(135deg, #dfefff 0%, #bfdafc 100%);
+      border-radius: 22px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 4.5rem;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    main {
+      padding: 40px 0 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.3fr;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      color: var(--primary-dark);
+    }
+
+    .profile-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .profile-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .bio {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+    }
+
+    .product-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .media-frame {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f5f9ff;
+      overflow: hidden;
+    }
+
+    .pdf-frame {
+      height: 620px;
+    }
+
+    .image-frame {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      background: linear-gradient(180deg, #ffffff 0%, #eef4fd 100%);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #dfeaf6;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #12263f;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 24px 0 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero-inner,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 52px; }
+      .avatar-box { height: 220px; }
+      .pdf-frame { height: 480px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Personal Portfolio</span>
+        <h1>Xin chào, tôi là Phan Hoàng Phú</h1>
+        <div class="hero-meta">
+          <span class="chip">UI/UX</span>
+          <span class="chip">Frontend</span>
+          <span class="chip">Truyền thông đa phương tiện</span>
+        </div>
+      </div>
+
+      <div class="avatar-card">
+        <div class="avatar-box">P</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid" aria-label="Thông tin cá nhân">
+      <div class="card">
+        <h2>Thông tin cá nhân</h2>
+        <ul class="profile-list">
+          <li><span class="label">Họ tên</span><span>Phan Hoàng Phú</span></li>
+          <li><span class="label">Ngày sinh</span><span>12/04/2007</span></li>
+		   <li><span class="label">MSSV</span><span>B260529</span></li>
+		    <li><span class="label">Lớp</span><span>CT005</span></li>
+          <li><span class="label">Email</span><span>phub2605297@student.ctu.edu.vn</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Giới thiệu</h2>
+        <p class="bio">
+          Tôi yêu thích các dự án mang tính sáng tạo, có khả năng kết hợp công nghệ và thiết kế để tạo ra
+          trải nghiệm người dùng tốt hơn. Trong quá trình học tập, tôi đã thực hiện nhiều dự án web, nghiên cứu
+          giao diện, và làm việc nhóm để phát triển kỹ năng lập trình, tư duy giải quyết vấn đề và kỹ năng thuyết trình.
+        </p>
+      </div>
+    </section>
+
+    <section aria-label="Sản phẩm tiêu biểu">
+      <h2 class="section-title">Sản phẩm tiêu biểu</h2>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <h3>1. File PDF</h3>
+          <p>Bản tóm tắt thông tin cá nhân và hồ sơ năng lực được lưu dưới định dạng tài liệu PDF để mở trực tiếp hoặc tải xuống.</p>
+          <a class="download-link" href="Lab05_Ex1.2.pdf" target="_blank" rel="noopener" download>Mở / Tải PDF</a>
+          <p class="bio" style="margin-top: 12px;">
+            Lưu ý: file hiện tại đang có tên <strong>Lab05_Ex1.2.pdf.docx</strong>, nên cần đổi tên hoặc lưu lại thành <strong>Lab05_Ex1.2.pdf</strong> để trình duyệt mở được đúng định dạng PDF.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>2. Ảnh Infographic PNG</h3>
+          <p>Infographic tổng hợp bản sắc cá nhân, kỹ năng, mục tiêu sự nghiệp và các hoạt động nổi bật.</p>
+          <img class="media-frame image-frame" src="Lab05_Ex2.1.png.png" alt="Infographic giới thiệu cá nhân" />
+        </article>
+
+        <article class="product-card">
+          <h3>3. Video YouTube</h3>
+          <p>Video giới thiệu ngắn giúp khách xem và hiểu rõ hơn về phong cách làm việc, sở thích và mục tiêu của tôi.</p>
+          <div class="media-frame video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+              title="Video giới thiệu cá nhân"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 - Trang giới thiệu cá nhân | Thiết kế bởi AI</footer>
+</body>
+</html>
